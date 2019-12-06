@@ -1,0 +1,235 @@
+header {
+  border-color: #4299e1;
+  border-top-width: 8px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+header > h1 {
+  font-weight: 700;
+  color: #2c5282;
+  font-size: 1.875rem;
+}
+
+.titleHighlight {
+  color: #4299e1;
+}
+
+header > h2 {
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+main {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+main h3 {
+  font-weight: 900;
+  text-align: center;
+  color: #4a5568;
+  font-size: 2.25rem;
+}
+
+.gridContainer {
+  display: grid;
+  align-content: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  margin-top: 8px;
+}
+
+.tile {
+  border-style: solid;
+  background-color: #f7fafc;
+  border-color: #edf2f7;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.tile.back {
+  background-color: #ebf4ff;
+}
+
+h4 {
+  font-weight: 700;
+  color: #2a4365;
+  font-size: 1.25rem;
+}
+
+h4.cardTerm {
+  margin-top: 1rem;
+  text-align: center;
+  color: #2c5282;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.cardButtons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.25rem;
+}
+
+button.primary {
+  background-color: #2b6cb0;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #fff;
+}
+
+button.secondary {
+  font-weight: 500;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+button.tertiary {
+  font-weight: 500;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #4a5568;
+  text-decoration: underline;
+}
+
+button.danger {
+  color: #c53030;
+}
+
+form div {
+  border-color: #e2e8f0;
+  margin-top: 0.5rem;
+}
+
+form label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  color: #2c5282;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+form label .errorMessage {
+  font-size: 0.15rem;
+  text-transform: none;
+  color: #c53030;
+}
+
+textarea {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+form div.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.practiceCTA {
+  margin-top: 0.5rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.practiceCTA a {
+  background-color: #2f855a;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  color: #fff;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.practiceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.practiceContainer a {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: #2b6cb0;
+  text-decoration: underline;
+}
+
+.practiceContainer a > svg {
+  vertical-align: middle;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
+  width: 1.5rem;
+}
+
+.progress {
+  font-weight: 500;
+  text-align: center;
+  color: #718096;
+  font-size: 1.5rem;
+}
+
+.card {
+  border-radius: 0.25rem;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.practiceTerm {
+  font-weight: 700;
+  text-align: center;
+  color: #2c5282;
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}
+
+.practiceButtons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
