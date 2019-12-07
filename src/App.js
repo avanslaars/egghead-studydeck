@@ -2,13 +2,12 @@ import React from 'react'
 import './normalize.css'
 import './App.css'
 import { CardPreview } from './components/CardPreview'
+import { getCards } from './services/cardService'
 
 function App() {
   const [cards, setCards] = React.useState([])
   React.useEffect(() => {
-    fetch('/api/card')
-      .then(res => res.json())
-      .then(setCards)
+    getCards().then(setCards)
   }, [])
   return (
     <div>
