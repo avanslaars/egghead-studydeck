@@ -1,8 +1,22 @@
 import React from 'react'
+import { saveCard } from '../services/cardService'
 
 export function CardForm(props) {
   const [term, setTerm] = React.useState('')
-  const [def, setDef] = React.useState('')
+  const [definition, setDef] = React.useState('')
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    saveCard({ term, definition }).then(card => {
+      clearForm()
+      props.onSave && typeof props.onSave === 'function' && props.onSave(card)
+    })
+  }
+
+  function clearForm() {
+    setTerm('')
+    setDef('')
+  }
 
   function handleTermChange(event) {
     const { value } = event.target
@@ -15,7 +29,7 @@ export function CardForm(props) {
   }
   return (
     <div className="tile">
-      <form>
+      <form onReset={clearForm} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="card_term">term</label>
           <textarea id="card_term" value={term} onChange={handleTermChange} />
@@ -24,7 +38,7 @@ export function CardForm(props) {
           <label htmlFor="card_definition">definition</label>
           <textarea
             id="card_definition"
-            value={def}
+            value={definition}
             onChange={handleDefChange}
           />
         </div>
