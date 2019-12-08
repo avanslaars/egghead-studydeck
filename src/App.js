@@ -9,6 +9,11 @@ function App() {
   React.useEffect(() => {
     getCards().then(setCards)
   }, [])
+
+  function handleRemove(id) {
+    setCards(existing => existing.filter(c => c.id !== id))
+  }
+
   return (
     <div>
       <div>
@@ -22,7 +27,13 @@ function App() {
           <h3>Your Cards</h3>
           <div className="gridContainer">
             {cards.map(({ id, definition, term }) => (
-              <CardPreview key={id} definition={definition} term={term} />
+              <CardPreview
+                key={id}
+                id={id}
+                onRemove={handleRemove}
+                definition={definition}
+                term={term}
+              />
             ))}
           </div>
         </main>
