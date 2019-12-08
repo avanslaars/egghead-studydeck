@@ -3,6 +3,7 @@ import './normalize.css'
 import './App.css'
 import { CardPreview } from './components/CardPreview'
 import { getCards } from './services/cardService'
+import { CardForm } from './components/CardForm'
 
 function App() {
   const [cards, setCards] = React.useState([])
@@ -26,6 +27,7 @@ function App() {
         <main>
           <h3>Your Cards</h3>
           <div className="gridContainer">
+            <CardForm />
             {cards.map(({ id, definition, term }) => (
               <CardPreview
                 key={id}
