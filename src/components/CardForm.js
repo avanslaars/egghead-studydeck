@@ -1,7 +1,7 @@
 import React from 'react'
 import { saveCard } from '../services/cardService'
 
-export function CardForm({ onSave }) {
+export function CardForm({ onSave, onCancel }) {
   const [term, setTerm] = React.useState('')
   const [definition, setDef] = React.useState('')
 
@@ -16,6 +16,7 @@ export function CardForm({ onSave }) {
   function clearForm() {
     setTerm('')
     setDef('')
+    onCancel && typeof onCancel === 'function' && onCancel()
   }
 
   function handleTermChange(event) {

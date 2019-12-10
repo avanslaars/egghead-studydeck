@@ -1,7 +1,20 @@
 import React from 'react'
 import { destroyCard } from '../services/cardService'
+import { CardForm } from './CardForm'
 
-export function CardPreview({ id, term, definition, onRemove }) {
+export function CardPreview({ onRemove, ...card }) {
+  const [isEditMode, setIsEditMode] = React.useState(false)
+  function handleToggleEdit() {
+    setIsEditMode(current => !current)
+  }
+  return isEditMode ? (
+    <CardForm onCancel={handleToggleEdit} />
+  ) : (
+    <View {...card} onEdit={handleToggleEdit} onRemove={onRemove} />
+  )
+}
+
+function View({ id, term, definition, onEdit, onRemove }) {
   const [isFront, setIsFront] = React.useState(true)
   function handleCardFlip() {
     setIsFront(current => !current)
@@ -22,7 +35,7 @@ export function CardPreview({ id, term, definition, onRemove }) {
           {isFront ? 'show back' : 'show front'}
         </button>
         <div>
-          <button type="button" className="secondary">
+          <button type="button" className="secondary" onClick={onEdit}>
             edit
           </button>
           <button
