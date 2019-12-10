@@ -19,6 +19,10 @@ function App() {
     setCards(existing => [...existing, card])
   }
 
+  function handleUpdate(card) {
+    setCards(existing => existing.map(c => (c.id === card.id ? card : c)))
+  }
+
   return (
     <div>
       <div>
@@ -33,7 +37,12 @@ function App() {
           <div className="gridContainer">
             <CardForm onSave={handleAdd} />
             {cards.map(card => (
-              <CardPreview key={card.id} {...card} onRemove={handleRemove} />
+              <CardPreview
+                key={card.id}
+                {...card}
+                onUpdate={handleUpdate}
+                onRemove={handleRemove}
+              />
             ))}
           </div>
         </main>

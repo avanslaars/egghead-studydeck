@@ -1,13 +1,15 @@
 import React from 'react'
 import { saveCard } from '../services/cardService'
 
-export function CardForm({ onSave, onCancel }) {
-  const [term, setTerm] = React.useState('')
-  const [definition, setDef] = React.useState('')
+export function CardForm({ onSave, onCancel, card }) {
+  const id = card && card.id ? card.id : undefined
+
+  const [term, setTerm] = React.useState(id ? card.term : '')
+  const [definition, setDef] = React.useState(id ? card.definition : '')
 
   function handleSubmit(event) {
     event.preventDefault()
-    saveCard({ term, definition }).then(card => {
+    saveCard({ term, definition, id }).then(card => {
       clearForm()
       onSave && typeof onSave === 'function' && onSave(card)
     })
@@ -30,6 +32,7 @@ export function CardForm({ onSave, onCancel }) {
   }
   return (
     <div className="tile">
+      <h4>{id ? 'Update Card' : 'Add Card'}</h4>
       <form onReset={clearForm} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="card_term">term</label>
