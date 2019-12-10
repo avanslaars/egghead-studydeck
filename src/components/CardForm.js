@@ -35,13 +35,19 @@ export function CardForm({ onSave, onCancel, card }) {
       <h4>{id ? 'Update Card' : 'Add Card'}</h4>
       <form onReset={clearForm} onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="card_term">term</label>
-          <textarea id="card_term" value={term} onChange={handleTermChange} />
+          <label htmlFor={`card_term_${id ? id : 'new'}`}>term</label>
+          <textarea
+            id={`card_term_${id ? id : 'new'}`}
+            value={term}
+            onChange={handleTermChange}
+          />
         </div>
         <div>
-          <label htmlFor="card_definition">definition</label>
+          <label htmlFor={`card_definition_${id ? id : 'new'}`}>
+            definition
+          </label>
           <textarea
-            id="card_definition"
+            id={`card_definition_${id ? id : 'new'}`}
             value={definition}
             onChange={handleDefChange}
           />
