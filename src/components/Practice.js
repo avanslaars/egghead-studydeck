@@ -10,6 +10,20 @@ export class Practice extends React.Component {
     this.setState(state => ({ isFront: !state.isFront }))
   }
 
+  handleNextCard = () => {
+    const { cards } = this.props
+    this.setState(state => ({
+      currentIndex: (state.currentIndex + 1) % cards.length
+    }))
+  }
+
+  handlePrevCard = () => {
+    const { cards } = this.props
+    this.setState(state => ({
+      currentIndex: (state.currentIndex - 1 + cards.length) % cards.length
+    }))
+  }
+
   render() {
     const { cards } = this.props
     const { currentIndex, isFront } = this.state
@@ -32,10 +46,18 @@ export class Practice extends React.Component {
               {isFront ? 'show back' : 'show front'}
             </button>
             <div>
-              <button type="button" className="secondary">
+              <button
+                type="button"
+                className="secondary"
+                onClick={this.handlePrevCard}
+              >
                 previous
               </button>
-              <button type="button" className="primary">
+              <button
+                type="button"
+                className="primary"
+                onClick={this.handleNextCard}
+              >
                 next
               </button>
             </div>
