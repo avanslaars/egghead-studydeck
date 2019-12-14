@@ -2,12 +2,19 @@ import React from 'react'
 
 export class Practice extends React.Component {
   state = {
-    currentIndex: 0
+    currentIndex: 0,
+    isFront: true
   }
+
+  handleCardFlip = () => {
+    this.setState(state => ({ isFront: !state.isFront }))
+  }
+
   render() {
     const { cards } = this.props
-    const { currentIndex } = this.state
-    const { term = '' } = cards && cards.length && cards[currentIndex]
+    const { currentIndex, isFront } = this.state
+    const { term = '', definition = '' } =
+      cards && cards.length && cards[currentIndex]
     return (
       <div className="practiceContainer">
         <h3>Practice</h3>
@@ -15,10 +22,14 @@ export class Practice extends React.Component {
           {currentIndex + 1}/{cards.length}
         </div>
         <div className="card">
-          <div className="practiceTerm">{term}</div>
+          <div className="practiceTerm">{isFront ? term : definition}</div>
           <div className="practiceButtons">
-            <button type="button" className="tertiary">
-              show back
+            <button
+              type="button"
+              className="tertiary"
+              onClick={this.handleCardFlip}
+            >
+              {isFront ? 'show back' : 'show front'}
             </button>
             <div>
               <button type="button" className="secondary">
