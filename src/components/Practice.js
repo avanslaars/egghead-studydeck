@@ -1,13 +1,21 @@
 import React from 'react'
 
 export class Practice extends React.Component {
+  state = {
+    currentIndex: 0
+  }
   render() {
+    const { cards } = this.props
+    const { currentIndex } = this.state
+    const { term = '' } = cards && cards.length && cards[currentIndex]
     return (
       <div className="practiceContainer">
         <h3>Practice</h3>
-        <div className="progress">1/5</div>
+        <div className="progress">
+          {currentIndex + 1}/{cards.length}
+        </div>
         <div className="card">
-          <div className="practiceTerm">What sound does a duck make?</div>
+          <div className="practiceTerm">{term}</div>
           <div className="practiceButtons">
             <button type="button" className="tertiary">
               show back
